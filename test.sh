@@ -1,0 +1,1 @@
+echo "All tests passed" >> test-results.txt

@@ -1,1 +1,1 @@
-echo "All tests passed" >> test-results.txt
+echo "All tests passed" >> /tmp/test-results.txt

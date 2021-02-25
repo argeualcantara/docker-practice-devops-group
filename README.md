@@ -1,6 +1,4 @@
-# docker-practice-devops-group
-
-## Projeto de exemplo para práticas com Docker
+# Projeto de exemplo para práticas com Docker
 
 Com base na apresentação de Docker no nosso grupo de estudos temos este reposítório com o objetivo de colocar em prática o que aprendemos.
 

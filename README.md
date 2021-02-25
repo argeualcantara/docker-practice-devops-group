@@ -22,4 +22,4 @@ Com base na apresentação de Docker no nosso grupo de estudos temos este repos�
 
 1. Utilize os scripts `get-key.sh <chave>` e `set-key.sh <chave>` para acessar a aplicação e se comunicar com o banco
 
-1. Configure para não perder os dados do redis após o container ser parado
+1. Configure para não perder os dados do redis após o container ser parado. O Redis armazena o dump dos seus dados na pasta `/data`

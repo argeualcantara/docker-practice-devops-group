@@ -1,0 +1,7 @@
+FROM node:12.21.0-alpine3.10
+
+COPY ./test.sh /app/test.sh
+
+WORKDIR /app
+
+CMD /app/test.sh

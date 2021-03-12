@@ -3,7 +3,7 @@ const app = express();
 
 app.get('/', (req, res) => {
   var response = 'Hello from NodeJS App\n';
-  if(process.env.USERNAME != '' || process.env.USERNAME == undefined){
+  if(process.env.USERNAME != '' || process.env.USERNAME != undefined){
     response = 'Hello ' + process.env.USERNAME + ' to NodeJS App\n';
   }
   res.send(response);

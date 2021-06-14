@@ -1,0 +1,11 @@
+FROM golang:buster AS build-env
+
+COPY ./hello-world.go /hello-world.go
+
+RUN go build -o /hello /hello-world.go
+
+FROM gcr.io/distroless/base-debian10
+COPY --from=build-env /hello /hello
+
+EXPOSE 8080
+CMD ["/hello"]

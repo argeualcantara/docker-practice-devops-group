@@ -18,7 +18,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - uses: ./.github/actions/docker-build-push.yml@main
+    - name: 'Docker Build and Push'
+      uses: ./.github/actions/docker-build-push.yml@main
       with:
         repo: docker-simple-service
         version-major-minor: '1.0'

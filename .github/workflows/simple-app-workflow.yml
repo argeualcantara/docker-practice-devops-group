@@ -29,6 +29,6 @@ jobs:
       with:
         repo: docker-simple-service
         version-major-minor: ${{ steps.set-semantic-version.outputs.version }}
-        dockerHubLogin: ${{ secrets.DOCKER_HUB_USER }}
+        dockerHubLogin: argeualcantara
         dockerHubPassword: ${{ secrets.DOCKER_HUB_PASS }}
         push: ${{ github.ref == 'refs/heads/main' }}

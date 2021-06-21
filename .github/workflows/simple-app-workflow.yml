@@ -18,6 +18,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - uses: /steps/docker-build-push.yaml@main
-      repo: docker-simple-service
-      version-major-minor: '1.0'
+    - uses: ./steps/docker-build-push.yaml@main
+      with:
+        repo: docker-simple-service
+        version-major-minor: '1.0'

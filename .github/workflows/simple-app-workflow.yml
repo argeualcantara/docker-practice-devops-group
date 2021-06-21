@@ -15,32 +15,17 @@ jobs:
     environment: production
 
     steps:
-    - name: Checkout Actions
+    - name: Checkout
       uses: actions/checkout@v2
+
+    - uses: argeualcantara/actions/seantic-version@v1.0.6
       with:
-        repository: argeualcantara/actions
-        ref: refs/tags/v1.0.6
-    # - name: Checkout
-    #   uses: actions/checkout@v2
-    - name: LS
-      id: ls-folders
-      shell: bash
-      run: |
-        ls /home/runner/work/_actions/argeualcantara
-        echo "-------------------"
-        ls /home/runner/work/_actions/argeualcantara/actions
-        echo "-------------------"
-        ls /home/runner/work/_actions/argeualcantara/actions/v1.0.6
-        echo "-------------------"
-        ls /home/runner/work/_actions/argeualcantara/actions/v1.0.6/seantic-version
-        echo "-------------------"
-    # - uses: argeualcantara/actions/seantic-version@v1.0.6
-    #   with:
-    #     version-major-minor: '1.0'
-    # - uses: argeualcantara/actions/docker-build-push@v1.0.6
-    #   with:
-    #     repo: docker-simple-service
-    #     version-major-minor: ${{ steps.set-semantic-version.outputs.version }}
-    #     dockerHubLogin: argeualcantara
-    #     dockerHubPassword: ${{ secrets.DOCKER_HUB_PASS }}
-    #     push: ${{ github.ref == 'refs/heads/main' }}
+        version-major-minor: '1.0'
+    - uses: argeualcantara/actions/docker-build-push@v1.0.6
+      with:
+        repo: docker-simple-service
+        version-major-minor: ${{ steps.set-semantic-version.outputs.version }}
+        dockerHubLogin: argeualcantara
+        dockerHubPassword: ${{ secrets.DOCKER_HUB_PASS }}
+        push: ${{ github.ref == 'refs/heads/main' }}
+        context: ./simple-app/

@@ -22,10 +22,10 @@ jobs:
         repository: argeualcantara/actions
         ref: refs/tags/v1.0.6
 
-    - uses: argeualcantara/actions/seantic-version@v1.0.6
+    - uses: argeualcantara/actions/seantic-version
       with:
         version-major-minor: '1.0'
-    - uses: argeualcantara/actions/docker-build-push@v1.0.6
+    - uses: argeualcantara/actions/docker-build-push
       with:
         repo: docker-simple-service
         version-major-minor: ${{ steps.set-semantic-version.outputs.version }}

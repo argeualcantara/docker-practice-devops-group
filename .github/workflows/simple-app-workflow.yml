@@ -30,7 +30,7 @@ jobs:
     - uses: argeualcantara/actions/docker-build-push@v1.0.6
       with:
         repo: docker-simple-service
-        version-major-minor: ${{ steps.set-semantic-version.outputs.version }}
+        version: ${{ steps.set-semantic-version.outputs.version }}
         dockerHubLogin: argeualcantara
         dockerHubPassword: ${{ secrets.DOCKER_HUB_PASS }}
         push: ${{ github.ref == 'refs/heads/main' }}

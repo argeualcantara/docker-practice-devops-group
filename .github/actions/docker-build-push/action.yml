@@ -9,12 +9,15 @@ inputs:
     description: ""
     required: true
 runs:
+  using: "composite"
   steps:
     - name: Login to Docker Hub
+      shell: bash
       id: docker-login
       run: |
         docker login -u "${{ secrets.DOCKER_HUB_USER }}" -p "${{ secrets.DOCKER_HUB_PASS }}"
     - name: Build, tag, and push image to Docker Hub
+      shell: bash
       id: build-image
       run: |
         docker build -t ${{ secrets.DOCKER_HUB_USER }}/${{ inputs.repo }}:${{ inputs.version-major-minor }}.${{ github.run_number }} ./simple-app/

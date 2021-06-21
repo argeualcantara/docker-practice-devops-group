@@ -19,7 +19,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: 'Docker Build and Push'
-      uses: argeualcantara/docker-practice-devops-group/.github/actions/docker-build-push.yml@main
+      uses: argeualcantara/docker-practice-devops-group/.github/actions/docker-build-push.yml
       with:
         repo: docker-simple-service
         version-major-minor: '1.0'

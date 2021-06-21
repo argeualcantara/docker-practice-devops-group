@@ -18,7 +18,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - uses: ./steps/docker-build-push.yml@main
+    - uses: argeualcantara/docker-practice-devops-group/steps/docker-build-push.yml@main
       with:
         repo: docker-simple-service
         version-major-minor: '1.0'

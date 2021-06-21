@@ -9,9 +9,6 @@ inputs:
     description: ""
     required: true
 steps:
-- name: Checkout
-  uses: actions/checkout@v2
-
 - name: Login to Docker Hub
   id: docker-login
   run: |

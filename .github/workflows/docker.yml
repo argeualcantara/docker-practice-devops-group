@@ -26,5 +26,5 @@ jobs:
     - name: Build, tag, and push image to Docker Hub
       id: build-image
       run: |
-        docker build -t argeualcantara/docker-simple-service:$BUILD_NUMBER ./simple-app/
-        docker push  argeualcantara/docker-simple-service:$BUILD_NUMBER
+        docker build -t argeualcantara/docker-simple-service:1.0.${{ github.run_number }} ./simple-app/
+        docker push  argeualcantara/docker-simple-service:1.0.${{ github.run_number }}

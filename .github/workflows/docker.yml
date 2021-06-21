@@ -42,7 +42,7 @@ jobs:
     - name: Login to Docker Hub
       id: docker-login
       run: |
-        docker login -u ${secrets.dockerHubUser} -p ${secrets.dockerHubPass}
+        docker login -u ${secrets.DOCKER_HUB_USER} -p ${secrets.DOCKER_HUB_PASS}
 
     - name: Build, tag, and push image to Docker Hub
       id: build-image

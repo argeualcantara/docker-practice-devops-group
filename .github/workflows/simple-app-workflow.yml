@@ -20,8 +20,8 @@ jobs:
       with:
         repository: argeualcantara/actions
         ref: refs/tags/v1.0.6
-    - name: Checkout
-      uses: actions/checkout@v2
+    # - name: Checkout
+    #   uses: actions/checkout@v2
     - name: LS
       id: ls-folders
       shell: bash

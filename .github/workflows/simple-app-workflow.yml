@@ -18,6 +18,12 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    - name: Checkout Actions
+      uses: actions/checkout@v2
+      with:
+        repository: argeualcantara/actions
+        ref: refs/tags/v1.0.6
+
     - uses: argeualcantara/actions/seantic-version@v1.0.6
       with:
         version-major-minor: '1.0'

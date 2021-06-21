@@ -18,19 +18,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    # - name: Checkout Actions
-    #   uses: actions/checkout@v2
-    #   with:
-    #     repository: argeualcantara/actions
-    #     ref: refs/tags/v1.0.6
-
-    - uses: argeualcantara/actions/semantic-version@v1.0.6
+    - uses: argeualcantara/actions/semantic-version@v1.0.7
       with:
         version-major-minor: '1.0'
-    - uses: argeualcantara/actions/docker-build-push@v1.0.6
+    - uses: argeualcantara/actions/docker-build-push@v1.0.7
       with:
         repo: docker-simple-service
-        version: ${{ steps.set-semantic-version.outputs.version }}
+        version: ${{ steps.semantic-version.outputs.version }}
         dockerHubLogin: argeualcantara
         dockerHubPassword: ${{ secrets.DOCKER_HUB_PASS }}
         push: ${{ github.ref == 'refs/heads/main' }}

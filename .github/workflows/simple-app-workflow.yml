@@ -17,11 +17,18 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        repository: argeualcantara/actions
 
-    - uses: argeualcantara/docker-practice-devops-group/.github/actions/docker-build-push@main
+    - uses: argeualcantara/actions/seantic-version@main
+      with:
+        version-major-minor: '1.0'
+    - uses: argeualcantara/actions/docker-build-push@main
       with:
         repo: docker-simple-service
-        version-major-minor: '1.0'
+        version-major-minor: ${{ steps.set-semantic-version.outputs.version }}
         dockerHubLogin: ${{ secrets.DOCKER_HUB_USER }}
         dockerHubPassword: ${{ secrets.DOCKER_HUB_PASS }}
         push: ${{ github.ref == 'refs/heads/main' }}

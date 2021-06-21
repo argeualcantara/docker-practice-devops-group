@@ -22,3 +22,5 @@ jobs:
       with:
         repo: docker-simple-service
         version-major-minor: '1.0'
+        dockerHubLogin: ${{ secrets.DOCKER_HUB_USER }}
+        dockerHubPassword: ${{ secrets.DOCKER_HUB_PASS }}

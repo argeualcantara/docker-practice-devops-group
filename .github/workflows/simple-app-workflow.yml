@@ -9,8 +9,8 @@ on:
 name: Push to Docker Hub
 
 jobs:
-  deploy:
-    name: Deploy
+  publish:
+    name: Publish
     runs-on: ubuntu-latest
     environment: production
 
@@ -34,13 +34,13 @@ jobs:
         echo "-------------------"
         ls /home/runner/work/_actions/argeualcantara
         echo "-------------------"
-    - uses: argeualcantara/actions/seantic-version@v1.0.6
-      with:
-        version-major-minor: '1.0'
-    - uses: argeualcantara/actions/docker-build-push@v1.0.6
-      with:
-        repo: docker-simple-service
-        version-major-minor: ${{ steps.set-semantic-version.outputs.version }}
-        dockerHubLogin: argeualcantara
-        dockerHubPassword: ${{ secrets.DOCKER_HUB_PASS }}
-        push: ${{ github.ref == 'refs/heads/main' }}
+    # - uses: argeualcantara/actions/seantic-version@v1.0.6
+    #   with:
+    #     version-major-minor: '1.0'
+    # - uses: argeualcantara/actions/docker-build-push@v1.0.6
+    #   with:
+    #     repo: docker-simple-service
+    #     version-major-minor: ${{ steps.set-semantic-version.outputs.version }}
+    #     dockerHubLogin: argeualcantara
+    #     dockerHubPassword: ${{ secrets.DOCKER_HUB_PASS }}
+    #     push: ${{ github.ref == 'refs/heads/main' }}

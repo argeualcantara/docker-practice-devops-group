@@ -1,0 +1,14 @@
+FROM node:12.21.0-alpine3.10
+
+COPY ./package.json /app/package.json
+COPY ./server.js /app/server.js
+
+WORKDIR /app
+
+RUN npm install
+
+EXPOSE 8080
+
+# CMD npm start
+
+ENTRYPOINT ["npm", "start"]

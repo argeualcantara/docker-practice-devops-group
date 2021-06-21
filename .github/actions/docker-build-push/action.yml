@@ -14,6 +14,10 @@ inputs:
   dockerHubPassword:
     description: "docker hub password"
     required: true
+  push:
+    description: "boolean push or not the image"
+    required: true
+    default: false
 runs:
   using: "composite"
   steps:
@@ -25,7 +29,8 @@ runs:
     - name: Build, tag, and push image to Docker Hub
       shell: bash
       id: build-image
-      if: ${{ github.ref == 'refs/heads/main' }}
       run: |
         docker build -t ${{ inputs.dockerHubLogin }}/${{ inputs.repo }}:${{ inputs.version-major-minor }}.${{ github.run_number }} ./simple-app/
-        docker push  ${{ inputs.dockerHubLogin }}/${{ inputs.repo }}:${{ inputs.version-major-minor }}.${{ github.run_number }}
+        if [ "${{ inputs.push }}" == "true" ]; then
+          docker push  ${{ inputs.dockerHubLogin }}/${{ inputs.repo }}:${{ inputs.version-major-minor }}.${{ github.run_number }}
+        fi

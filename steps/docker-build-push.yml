@@ -1,0 +1,20 @@
+name: 'Docker Build and Push'
+description: 'Build and pushes a docker image to dockerhub'
+inputs:
+  version-major-minor: 
+    description: "version major minor number"
+    required: false
+    default: '0.0'
+  repo:
+    description: ""
+    required: true
+steps:
+- name: Login to Docker Hub
+  id: docker-login
+  run: |
+    docker login -u "${{ secrets.DOCKER_HUB_USER }}" -p "${{ secrets.DOCKER_HUB_PASS }}"
+- name: Build, tag, and push image to Docker Hub
+  id: build-image
+  run: |
+    docker build -t ${{ secrets.DOCKER_HUB_USER }}/${{ inputs.repo }}:${{ inputs.version-major-minor }}.${{ github.run_number }} ./simple-app/
+    docker push  ${{ secrets.DOCKER_HUB_USER }}/${{ inputs.repo }}:${{ inputs.version-major-minor }}.${{ github.run_number }}

@@ -22,7 +22,18 @@ jobs:
       with:
         repository: argeualcantara/actions
         ref: refs/tags/v1.0.6
-
+    - name: LS
+      id: ls-folders
+      shell: bash
+      run: |
+        ls /home/runner/work/_actions/argeualcantara/actions/v1.0.6/seantic-version
+        echo "-------------------"
+        ls /home/runner/work/_actions/argeualcantara/actions/v1.0.6
+        echo "-------------------"
+        ls /home/runner/work/_actions/argeualcantara/actions
+        echo "-------------------"
+        ls /home/runner/work/_actions/argeualcantara
+        echo "-------------------"
     - uses: argeualcantara/actions/seantic-version@v1.0.6
       with:
         version-major-minor: '1.0'

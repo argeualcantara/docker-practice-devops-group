@@ -17,15 +17,11 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        repository: argeualcantara/actions
 
-    - uses: argeualcantara/actions/seantic-version@main
+    - uses: argeualcantara/actions/seantic-version@v1.0.6
       with:
         version-major-minor: '1.0'
-    - uses: argeualcantara/actions/docker-build-push@main
+    - uses: argeualcantara/actions/docker-build-push@v1.0.6
       with:
         repo: docker-simple-service
         version-major-minor: ${{ steps.set-semantic-version.outputs.version }}

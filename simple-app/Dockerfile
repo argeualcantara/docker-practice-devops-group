@@ -1,4 +1,4 @@
-FROM node:12.21.0-alpine3.10
+FROM node:current-alpine3.14
 
 COPY ./package.json /app/package.json
 COPY ./server.js /app/server.js
